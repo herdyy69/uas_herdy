@@ -15,15 +15,49 @@
             <style>
                 body {
                     font-family: 'Fredoka', cursive;
+                    background-image: url("../asset/bg.jpg");
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
+                }
+                .card{
+                    margin-top: 1rem;
+                    margin-bottom: 1rem;
+                    border-radius: 1rem;
+                    /* backround transparan */
+                    background-color: rgba(0, 0, 0, 0.5);
+                }
+                thead, tbody, tr, td, th{
+                    background-color: rgba(0, 0, 0, 0.5);
+                    color: white;
+                }
+                h3{
+                    font-family: 'Oswald', sans-serif;
+                    font-weight: 400;
+                    font-size: 2rem;
+                    color: white;
+                    margin-top: 0.5rem;
+                }
+                label{
+                    font-weight: 400;
+                    color: white;
                 }
                 
             </style>
-            <title>Beranda</title>
+            <title>Update</title>
         </head>
         <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <style>
+                .dropdown-menu {
+                    background-color: #0D6EFD;
+                }
+                .dropdown-item {
+                    color: white;
+                }
+            </style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-            <a class="navbar-brand" href="index.php">SMK ASSALAAM</a>
+            <a class="navbar-brand" href="../index.php">SMK ASSALAAM</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -33,13 +67,17 @@
           <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Jurusan</a>
+            <a class="nav-link disabled" aria-current="page" href="index.php">|</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Pendaftaran</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Pembayaran</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Admin features
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="../jurusan/index.php">Jurusan</a></li>
+            <li><a class="dropdown-item" href="../pendaftaran/index.php">Pendaftaran</a></li>
+            <li><a class="dropdown-item" href="../pembayaran/index.php">Pembayaran</a></li>
+          </ul>
         </li>
         </ul>
     </div>
@@ -48,7 +86,7 @@
             <div class="container-fluid mt-3">
 
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                     <div class="card">
                                 <div class="card-header">
                                     <h3>Update Data</h3>
@@ -70,8 +108,8 @@
                                 <form action="../pembayaran/proses.php" method="post">
                                 <input type="hidden" name="aksi" value="update">
                                 <input type="hidden" name="id" value="<?php echo $id; ?>">
-                                <div class="col-md-6">
-                                    
+                                
+                                <div class="col-md-8">
                                 <div class="form-group">
                                     <label for="kode_pembayaran">Kode Pembayaran</label>
                                     <input type="text" class="form-control" name="kode_pembayaran" value="<?= $kode_pembayaran?>" id="kode_pembayaran" placeholder="Kode pembayaran">
@@ -109,7 +147,7 @@
                                     <input type="number" class="form-control" name="uang_kegiatan" id="uang_kegiatan" value="<?= $uang_kegiatan?>" placeholder="uang_kegiatan">
                                 </div>
                                 <button type="submit" name="save" class="btn btn-primary mt-1">Simpan</button>
-                                <a href="read.php" class="btn btn-danger mt-1">Kembali</a>
+                                <a href="index.php" class="btn btn-danger mt-1">Kembali</a>
                             </form>
                                 </div>
                             </div>

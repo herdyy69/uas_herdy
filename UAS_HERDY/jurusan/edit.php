@@ -13,17 +13,37 @@
             <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&family=Rowdies:wght@300&display=swap" rel="stylesheet" />
             <script src="https://kit.fontawesome.com/a81368914c.js"></script>
             <style>
-                body {
+               body {
                     font-family: 'Fredoka', cursive;
+                    background-image: url("../asset/bg.jpg");
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
+                }
+                .card{
+                    background-color: rgba(0, 0, 0, 0.5);
+                    color: white;
+                }
+                h3 {
+                    font-family: 'Oswald', sans-serif;
+                    margin-top: 0.5rem;
                 }
                 
             </style>
-            <title>Beranda</title>
+            <title>Update</title>
         </head>
         <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <style>
+                .dropdown-menu {
+                    background-color: #0D6EFD;
+                }
+                .dropdown-item {
+                    color: white;
+                }
+            </style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-            <a class="navbar-brand" href="index.php">SMK ASSALAAM</a>
+            <a class="navbar-brand" href="../index.php">SMK ASSALAAM</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -33,13 +53,17 @@
           <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Jurusan</a>
+            <a class="nav-link disabled" aria-current="page" href="index.php">|</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Pendaftaran</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Pembayaran</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Admin features
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="../jurusan/index.php">Jurusan</a></li>
+            <li><a class="dropdown-item" href="../pendaftaran/index.php">Pendaftaran</a></li>
+            <li><a class="dropdown-item" href="../pembayaran/index.php">Pembayaran</a></li>
+          </ul>
         </li>
         </ul>
     </div>
@@ -55,7 +79,7 @@
                 ?>
             <div class="container-fluid mt-3">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                     <div class="card">
                                 <div class="card-header">
                                     <h3>Update Data</h3>
@@ -64,6 +88,7 @@
                                 <form action="../jurusan/proses.php" method="post">
                                 <input type="hidden" name="aksi" value="update">
                                 <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                <div class="row">
                                 <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="kode_jurusan">Kode Jurusan</label>
@@ -77,6 +102,10 @@
                                 <a href="index.php" class="btn btn-danger mt-1">Kembali</a>
                             </form>
                                 </div>
+                                <div class="col-md-4">
+                                    <img src="../ASSET/logo.png" alt="" width="45%" class="text-end">
+                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>
